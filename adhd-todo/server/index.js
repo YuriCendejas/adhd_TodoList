@@ -23,4 +23,8 @@ const TaskSchema = new mongoose.Schema({
 const Task = mongoose.model("Task",TaskSchema);
 
 //routes
-app.get("/tasks",async(req,res))
+app.get("/tasks",async(req,res) => {
+    const tasks =await Task.find();
+    res.json(tasks);
+
+});
