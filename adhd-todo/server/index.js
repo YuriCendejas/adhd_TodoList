@@ -2,11 +2,11 @@ const express = require("express"); //imports express
 const mongoose = require("mongoose"); // import mongoose (tool thats of mongoDB)
 const cors = require("cors"); // imports cors: lets your frontend talk to the backend
 require("dotenv").config();
-console.log("ENV:",process.env.MONGO_URI);
+
 
 const app =express(); // not really for app of a phone but of ther server
 
-app.listen(cors());
+app.use(cors());
 //enables your react app to make requests to your server
 app.use(express.json());// allows server to read JSON data front frontend
 
@@ -24,7 +24,26 @@ const Task = mongoose.model("Task",TaskSchema);
 
 //routes
 app.get("/tasks",async(req,res) => {
-    const tasks =await Task.find();
+    const tasks = await Task.find();
     res.json(tasks);
 
 });
+
+app.post("/tasks",async(req,res) => {
+    const task = new Task ({
+        text:req.body.text,
+        completed:false
+ });
+    await task.save();
+    res.json(task);
+});
+
+app.put("/tasks/:id",async(req,res) => {
+    const task = await Task.findByIdAndUpdate(req.params.id,
+        {completed:true},
+        {new:true} // since bow its updated
+);
+res.json(task);
+})
+// starts server 👩🏻‍💻
+app.listen(5000,() => console.log("Server running on port 5000"));
