@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json()); // allows server to read JSON data front frontend
 
 //this part is to connect to the mongoDB
-mongoose
+mongoose // starting point of the chain .
   .connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to mongoDB"))
   .catch((err) => console.error(err));
