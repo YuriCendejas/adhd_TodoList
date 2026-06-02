@@ -32,6 +32,7 @@ app.get("/tasks", async (req, res) => {
 });
 
 app.post("/tasks", async (req, res) => {
+
   // when frontend sends a new task
   const task = new Task({
     text: req.body.text,
@@ -50,7 +51,7 @@ app.put("/tasks/:id", async (req, res) => {
   res.json(task); // sends updated task back
 });
 // starts server 👩🏻‍💻
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001; // it just wasnting working with 5000 ,. CHATGPT SAID ❌ 5000 = unstable / taken by system
 app.listen(PORT, () => {
   console.log(`Server running on  ${PORT}`);
 }); /* this bc  then many hosting providers automatically assign a port number
