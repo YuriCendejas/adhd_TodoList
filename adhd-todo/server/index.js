@@ -50,6 +50,12 @@ app.put("/tasks/:id", async (req, res) => {
   );
   res.json(task); // sends updated task back
 });
+
+// delete route
+app.delete("/tasks/:id",async(req,res) =>{
+  try {await Task.findByIdAndDelete(req.params.id);res.json({message:"Task deleted"});
+} catch (err) {res.status(500).json(err);}
+});
 // starts server 👩🏻‍💻
 const PORT = process.env.PORT || 3001; // it just wasnting working with 5000 ,. CHATGPT SAID ❌ 5000 = unstable / taken by system
 app.listen(PORT, () => {
