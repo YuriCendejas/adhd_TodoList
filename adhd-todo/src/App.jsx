@@ -39,7 +39,7 @@ const addTask = () =>{
         <h1> ✨ Pixie Progress 🧚🏼‍♀️</h1> {/*my title of my project */}
 
 
-<input placeholder="To Do..✨"> {/*the writing inside the text box */}
+<input placeholder="To Do..✨"/> {/*the writing inside the text box */}
 
 <button onClick={addTask}>
   ADD {/* the button to post
