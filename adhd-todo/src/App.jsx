@@ -34,11 +34,12 @@ const addTask = () => {
 const completedTask =(id) => {
   // similar how the addTask looks
 axios
-.post("http://localhost:3001/tasks",{text})
+.put(`http://localhost:3001/tasks,${id}`)
 .then((res) => {
   //updates the task in react state
-  setTasks(tasks.map(task) =>
+  setTasks(tasks.map((task) =>
   task._id === id ? res.data : task ) //ternary operator 
+);
 })
 .catch((err) => console.log(err))
 }
