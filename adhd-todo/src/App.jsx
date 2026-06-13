@@ -34,15 +34,16 @@ const addTask = () => {
 const completedTask =(id) => {
   // similar how the addTask looks
 axios
-.put(`http://localhost:3001/tasks,${id}`)
+.put(`http://localhost:3001/tasks/${id}`)
 .then((res) => {
   //updates the task in react state
-  setTasks(tasks.map((task) =>
+  setTasks(
+    tasks.map((task) =>
   task._id === id ? res.data : task ) //ternary operator 
 );
 })
-.catch((err) => console.log(err))
-}
+.catch((err) => console.log(err));
+};
 
 
 // UI (WHAT PPL WILL SEE)
@@ -66,13 +67,19 @@ onChange={(e) => setText(e.target.value)}
         {/*Task list or/and loops through every task*/}
         {tasks.map((task) => ( //react give you one task at a time with this.
 
-        <div key={task._id}> // key so react can track import PropTypes from 'prop-types'
-        {task.completed ? "✓": ""}  {/* if its true then show checkmark ,
+
+        <div key={task._id}>
+        {/* key so react can track import PropTypes from 'prop-types'*/}
+        {task.completed ? "✓": ""}
+          {/* if its true then show checkmark ,
          but if false dont put nothing */}
-        {task.text}  {/*displays the  actual task text */}
+        {task.text} 
+         {/*displays the  actual task text */}
 
         {!task.completed && (
-          <button onClick={() => completeTask(task._id)} ></button>
+          <button onClick={() => completedTask(task._id)} >
+            Done✨🌷
+          </button>
         )}
         </div>
 
