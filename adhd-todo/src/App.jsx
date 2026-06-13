@@ -30,6 +30,18 @@ const addTask = () => {
 
 };
 
+//Marks a task complete
+const completedTask =(id) => {
+  // similar how the addTask looks
+axios
+.post("http://localhost:3001/tasks",{text})
+.then((res) => {
+  //updates the task in react state
+  setTasks(tasks.map(task) =>
+  task._id === id ? res.data : task ) //ternary operator 
+})
+.catch((err) => console.log(err))
+}
 
 
 // UI (WHAT PPL WILL SEE)
@@ -38,7 +50,7 @@ const addTask = () => {
         <h1> ✨ Pixie Progress 🧚🏼‍♀️</h1> {/*my title of my project */}
 
 {/*the writing inside the text box */}
-<input placeholder="To Do..✨" 
+<input placeholder="Add Quest 🧚🏼‍♀️" 
 value={text} 
 onChange={(e) => setText(e.target.value)}
 /> {/*connects input to state*/} 
@@ -52,9 +64,16 @@ onChange={(e) => setText(e.target.value)}
 
         {/*Task list or/and loops through every task*/}
         {tasks.map((task) => ( //react give you one task at a time with this.
-        <p key={task._id}> 
-        {task.text}  {/*displays the task text */}
-        </p>
+
+        <div key={task._id}> // key so react can track import PropTypes from 'prop-types'
+        {task.completed ? "✓": ""}  {/* if its true then show checkmark ,
+         but if false dont put nothing */}
+        {task.text}  {/*displays the  actual task text */}
+
+        {!task.completed && (
+          <button onClick={() => completeTask(task._id)} ></button>
+        )}
+        </div>
 
         )
     )}
