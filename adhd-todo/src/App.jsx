@@ -20,6 +20,7 @@ function App() { //creates a state variable called "tasks"
 
     //sends new task to backend
 const addTask = () => { 
+  if (!text.trim()) return; // stops empty tasks 
   axios
   .post("http://localhost:3001/tasks", {text}) // whats user typed
   .then((res)=> {
@@ -39,7 +40,8 @@ axios
   //updates the task in react state
   setTasks(
     tasks.map((task) =>
-  task._id === id ? res.data : task ) //ternary operator 
+  task._id === id ? res.data : task 
+  ) //ternary operator 
 );
 })
 .catch((err) => console.log(err));
@@ -66,11 +68,12 @@ onChange={(e) => setText(e.target.value)}
 
         {/*Task list or/and loops through every task*/}
         {tasks.map((task) => ( //react give you one task at a time with this.
+        
 
 
         <div key={task._id}>
         {/* key so react can track import PropTypes from 'prop-types'*/}
-        {task.completed ? "✓": ""}
+        {task.completed ? " ☑️🧚🏼‍♀️ ":""}
           {/* if its true then show checkmark ,
          but if false dont put nothing */}
         {task.text} 
