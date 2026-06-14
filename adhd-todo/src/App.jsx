@@ -1,8 +1,8 @@
 //Imports React hooks
 import { useEffect,useState } from 'react';
-
 import axios from "axios"; 
 //imports axios so we can make requests to our backend
+import './App.css'; // imports css styles 
 
 function App() { //creates a state variable called "tasks"
   const [tasks,setTasks] = useState([]);// stores all tasks from mongodb
@@ -50,7 +50,8 @@ axios
 
 // UI (WHAT PPL WILL SEE)
     return(
-      <div>
+      <div className="pix">
+      
         <h1> ✨ Pixie Progress 🧚🏼‍♀️</h1> {/*my title of my project */}
 
 {/*the writing inside the text box */}
