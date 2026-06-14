@@ -72,7 +72,7 @@ onChange={(e) => setText(e.target.value)}
         
 
 
-        <div key={task._id}>
+        <div  className="task" key={task._id}>
         {/* key so react can track import PropTypes from 'prop-types'*/}
         {task.completed ? " ☑️🧚🏼‍♀️ ":""}
           {/* if its true then show checkmark ,

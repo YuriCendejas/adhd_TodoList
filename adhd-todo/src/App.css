@@ -2,19 +2,49 @@ body {
   background-color:pink; 
 }
 h1 {
-  text-align: center;
+  text-align: center; /*makes the pixie title centered*/
+color:#6d8aa4;
+
+
 }
-button{
-  cursor:pointer;
-  front-weight:bolder;
+
+h1,.shadows-into-light-two-regular {  /*this works with h1, grouping it together , using googlefont for title*/
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+button{ /*todo button*/
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: aliceblue;
+  background-color: rgb(254, 255, 255); /*makes the button inside white*/
 padding-left:2%;
 padding-right: 2%; /* i wanted to add to the button on both sides a 
 little space inside the button with the padding*/
-margin-left:5% /*to get the button away from the text */
+margin-left:5%; /*to get the button away from the text */
+border: 3px solid #b9d7f2;
+border-radius:25%;
+color:#6d8aa4; /*to change the font color inside*/
+
+
 }
 
-.pix{
+.pix{/*the entire tasks list with button (the whole application)*/
   text-align: center; /*it made the whole thing go to the center*/ 
+  margin: auto;
+  max-width: 500px; /* prevents it from strreching across the screen */
 }
+
+.task{ /*the list of task */
+  background: white;
+  margin: auto;
+  padding: 5%; /*spaces the tasks from one an another*/
+ border-style:groove;
+border-radius: 25%;
+border: 3px solid #b9d7f2;} /*google helping with the HEX colors*/
+
+input{ /*the 'add quest' box*/
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid #b9d7f2;
+border-radius: 10%;}
