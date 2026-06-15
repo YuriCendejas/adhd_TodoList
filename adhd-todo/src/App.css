@@ -48,3 +48,49 @@ input{ /*the 'add quest' box*/
   margin: 10px;
   border: 3px solid #b9d7f2;
 border-radius: 10%;}
+
+.falling-container {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none; /*allows clicks through emojis*/
+overflow:hidden;
+}
+.falling{
+  position:absolute ;
+  animation: fall 15s linear infinite; /*that way it can repeat and make it slower*/
+}
+
+.falling:nth-child(1) {/*selects the first .falling elemnt,
+ inside the parent since its all about the same coding that,
+  i would have to writw for each .falling child if that makes sense*/
+left: 10%;
+}
+.falling:nth-child(2){ /*second emoji inside the parent "falling-container" and inside the child .falling*/
+  left:20%;
+}
+.falling:nth-child(3){
+left:25%;
+animation-duration: 13s; /*that way it can be delayed away from the others*/
+}
+.falling:nth-child(4){
+  left:70%;
+}
+.falling:nth-child(5){
+  left:80%;
+  animation-duration:13s ;
+}
+.falling:nth-child(6){
+  left:90%;
+}
+@keyframes fall{ /*chatpt said without this , nothing moves*/
+  0% {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+ opacity: 0; }
+}

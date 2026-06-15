@@ -64,8 +64,19 @@ const deleteTask =(id)=>{
 
 
 // UI (WHAT PPL WILL SEE)
+
     return(
+
       <div className="pix">
+
+<div className="falling-container"> {/*to make the emojis fall from the top */}
+  <span className="falling">✨🌷</span>
+  <span className="falling">🌷✨</span>
+  <span className="falling">🧚🏼</span>
+  <span className="falling">✨🌷</span>
+  <span className="falling">🧚🏼</span>
+  <span className="falling">🌷✨</span>
+</div>
       
         <h1> ✨ Pixie Progress 🧚🏼‍♀️</h1> {/*my title of my project */}
 
